@@ -5,13 +5,15 @@ phases:
     commands:
       - echo "Installing Maven..."
       - mvn --version
+
   build:
     commands:
       - echo "Building the project..."
-      - cd java
       - mvn clean package
 
 artifacts:
   files:
-    - java/target/*.jar
-
+    - target/*.jar
+  discard-paths: yes
+  name: build-output
+  base-directory: target
